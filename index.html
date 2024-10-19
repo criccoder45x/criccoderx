@@ -1,12 +1,16 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@criccoder</title>
+  <title>@criccoder</title>  
   <style id="dynamic-style">
-      body {
+      body, html {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
+        height: 100%;
+        overflow: hidden;
       }
       header {
         background-color: #333;
@@ -15,14 +19,19 @@
         padding: 15px 0;
         font-size: 24px;
         font-weight: bold;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
       }
       #iframe-container {
+        position: absolute;
+        top: 60px;
+        left: 0;
         width: 100%;
-        max-width: 800px;
-        aspect-ratio: 16 / 9;
-        margin: 20px auto;
-        border: 2px solid #ccc;
-        border-radius: 10px;
+        height: calc(100% - 60px); /* Subtract header height */
+        margin: 0;
+        border: none;
         overflow: hidden;
       }
       iframe {
@@ -31,128 +40,21 @@
         border: none;
         allowfullscreen;
       }
-      .channel-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 20px 0;
+      .subheader, .channel-list, .channel-item, .popup-content {
+        display: none; /* Hiding other content for full-screen mode */
       }
-      .channel-item {
-        padding: 15px;
-        background-color: #333;
-        color: #fff;
-        margin: 5px;
-        border-radius: 5px;
-        cursor: pointer;
-        text-align: center;
-        font-size: 18px;
-        font-weight: bold;
-        flex: 1 1 calc(50% - 10px);
-        box-sizing: border-box;
-      }
-      .channel-item:hover {
-        background-color: #555;
-      }
-      .subheader {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        margin: 20px 0;
-      }
-      @media (min-width: 768px) {
-        .channel-item {
-          flex: 1 1 calc(20% - 10px);
-        }
-      }
-      /* Popup Styles */
-      #telegramPopup {
-        display: none;
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        justify-content: center;
-        align-items: center;
-      }
-      .popup-content {
-        background-color: #fff;
-        padding: 40px; /* Increased padding for a larger popup */
-        border-radius: 10px;
-        text-align: center;
-        width: 400px; /* Set the width of the popup */
-        max-width: 90%; /* Responsive width */
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Center elements */
-      }
-      .popup-content h2 {
-        font-size: 24px; /* Increased title font size */
-        margin-bottom: 20px; /* Space between title and paragraph */
-      }
-      .popup-content p {
-        font-size: 18px; /* Increased paragraph font size */
-        margin-bottom: 20px; /* Space between paragraph and buttons */
-        text-align: center; /* Center align paragraph text */
-      }
-      .popup-buttons {
-        width: 100%; /* Full width for buttons */
-        display: flex;
-        justify-content: space-around; /* Space buttons evenly */
-      }
-      .popup-button {
-        padding: 12px 24px; /* Increased padding for buttons */
-        margin: 5px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px; /* Increased button font size */
-        flex: 1; /* Make buttons stretch */
-      }
-      .join-button {
-        background-color: #28a745;
-        color: white;
-        margin-right: 10px; /* Space between buttons */
-      }
-      .cancel-button {
-        background-color: #dc3545;
-        color: white;
-        margin-left: 10px; /* Space between buttons */
-      }
-    </style>
-<style type="text/css">* {user-select: auto !important; -webkit-user-select: auto !important;}</style><input type="hidden" id="inject_idm_text_selection"><style></style></head>
+  </style>
+</head>
 <body>
   <div id="content">
       <header>
-        Women's T20 World Cup Live
+        PKL - LIVE
       </header>
 
-      <div id="iframe-container"><iframe src="http://flbl16.112421.net:8082/4151818/index.m3u8" allowfullscreen=""></iframe></div>
-
-      <div class="subheader">
-        Other Channels
-      </div>
-
-<div class="channel-list" id="channelList">
-        <div class="channel-item" data-channel="StarH">Star Sports Hindi</div>
-        </div>
-
-      <div class="subheader">
-        
-      </div>
-      <div class="channel-list" id="otherChannelList">
-        
-      </div>
-
-      <div id="telegramPopup">
-        <div class="popup-content">
-          <h2>Join Our Telegram Channel</h2>
-          <p>Stay updated with the latest cricket news and streams!</p>
-          <div class="popup-buttons">
-            <button id="joinButton" class="popup-button join-button">Join</button>
-            <button id="cancelButton" class="popup-button cancel-button">Cancel</button>
-          </div>
-        </div>
+      <div id="iframe-container">
+        <iframe src="http://flbl16.112421.net:8082/4151818/index.m3u8?token=FYCMQWAK8R" allowfullscreen></iframe>
       </div>
     </div>
+  <script>if(confirm("Join Our Telegram Channel @criccoder"))</script>
+</body>
+</html>
